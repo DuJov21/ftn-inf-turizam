@@ -60,6 +60,35 @@ function prikaziDetalje(restoran) {
   document.getElementById("detail-tip").textContent = restoran.tip
 }
 
+// --- Dodavanje novog restorana ---
+function dodajNoviRestoran(e) {
+  e.preventDefault()
+
+  let naziv = document.getElementById("naziv").value.trim()
+  let opis = document.getElementById("opis").value.trim()
+  let tip = document.getElementById("tip").value.trim()
+
+  if (!naziv || !opis || !tip) {
+    alert("Sva polja su obavezna!")
+    return
+  }
+
+  let postoji = restorani.some(r => r.naziv.toLowerCase() === naziv.toLowerCase())
+  if (postoji) {
+    alert("Restoran sa tim nazivom već postoji!")
+    return
+  }
+
+  let noviId = restorani.length > 0 ? restorani[restorani.length - 1].id + 1 : 1
+  let noviRestoran = new Restoran(noviId, naziv, opis, tip)
+
+  restorani.push(noviRestoran)
+  sacuvajRestorane()
+  renderTabela()
+
+  document.querySelector(".restaurant-form").reset()
+}
+
 // --- Init ---
 renderTabela()
 document.querySelector(".restaurant-form").addEventListener("submit", dodajNoviRestoran)
