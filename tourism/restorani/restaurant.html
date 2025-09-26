@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TourApp - Restorani</title>
+  <link rel="stylesheet" href="restaurant.css">
+</head>
+<body>
+  <nav class="navbar">
+    <h1 class="title">TourApp</h1>
+    <ul class="nav-links">
+      <li><a href="../contact/contact.html">Kontakt</a></li>
+      <li><a href="../tour/tour.html">Ture</a></li>
+      <li><a href="restaurant.html" class="active">Restorani</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- Leva strana: tabela -->
+    <div class="table-section">
+      <h2>Restorani</h2>
+      <table class="restaurants-table" border="1">
+        <thead>
+          <tr>
+            <th>Ime</th>
+            <th>Tip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- JS popunjava -->
+        </tbody>
+      </table>
+
+      <div class="details-section">
+        <h2>Detalji restorana</h2>
+        <p><strong>Naziv:</strong> <span id="detail-naziv">-</span></p>
+        <p><strong>Opis:</strong> <span id="detail-opis">-</span></p>
+        <p><strong>Tip:</strong> <span id="detail-tip">-</span></p>
+      </div>
+    </div>
+
+  <script src="restaurant.js"></script>
+</body>
+</html>
