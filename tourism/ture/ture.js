@@ -50,5 +50,35 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("detalj-tagovi").textContent = tura.tagovi.join(", ");
     }
 
+    const forma = document.getElementById("dodajTuruForma");
+
+    forma.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const naziv = document.getElementById("nazivTure").value.trim();
+        const duzinaInput = document.getElementById("duzina").value.trim();
+        const opis = document.getElementById("opisTure").value.trim();
+        
+        const tagoviString = document.getElementById("tagovi").value;
+        const tagoviNiz = tagoviString.split(',').map(tag => tag.trim()).filter(tag => tag.length > 0);
+        
+        const duzina = parseFloat(duzinaInput);
+
+        if (naziv && opis && duzinaInput && !isNaN(duzina) && duzina > 0) {
+            
+            const novaTura = new Tura(naziv, duzina, opis, tagoviNiz);
+            ture.push(novaTura);
+
+            localStorage.setItem("ture", JSON.stringify(ture));
+
+            prikaziTure();
+            forma.reset(); 
+            
+            alert(`Tura "${naziv}" uspešno dodata i sačuvana!`);
+
+        } else {
+            alert("Molimo popunite sva polja ispravno. Dužina mora biti pozitivan broj.");
+        }
+    });
     prikaziTure();
 });
