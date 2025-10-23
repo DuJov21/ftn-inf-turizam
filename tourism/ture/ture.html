@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourApp - Ture</title>
+    <link rel="stylesheet" href="ture.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <h1 class="title">TourApp</h1>
+        <ul class="nav-links">
+            <li><a href="../app/contact/contact.html">Kontakt</a></li>
+            <li><a href="ture.html" class="active">Ture</a></li> 
+            <li><a href="../restorani/restaurant.html">Restorani</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="top-section">
+
+            <div class="table-container">
+                <h2>Pregled tura</h2>
+                <table id="tabelaTura">
+                    <thead>
+                        <tr>
+                            <th>Naziv ture</th>
+                            <th>Dužina (km)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="form-container">
+                <h2>Dodaj novu turu</h2>
+                <form id="dodajTuruForma">
+                    <input type="text" id="nazivTure" placeholder="Naziv ture" required>
+                    <input type="number" id="duzina" placeholder="Dužina ture (km)" required>
+                    <input type="text" id="opisTure" placeholder="Opis ture" required>
+                    <input type="text" id="tagovi" placeholder="Tagovi (odvojeni zarezom)" required>
+                    <button type="submit">Dodaj turu</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="details-section">
+            <div class="kartica-detalji">
+                <h2>Detalji ture</h2>
+                <p><strong>Naziv:</strong> <span id="detalj-naziv">-</span></p>
+                <p><strong>Opis:</strong> <span id="detalj-opis">-</span></p>
+                <p><strong>Tagovi:</strong> <span id="detalj-tagovi">-</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="ture.js"></script>
+</body>
+
+</html>
